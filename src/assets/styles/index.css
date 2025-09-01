@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Didact+Gothic&family=Kulim+Park:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-gray: rgba(43, 43, 43, 0.88);
+  --color-light-gray: #A29F9F;
+  --font-dm-sans: "DM Sans", sans-serif;
+  --font-kulim-park: "Kulim Park", sans-serif;
+  --font-didact: "Didact Gothic", sans-serif;
+}
+
+@layer base{
+    html,
+    body {
+      width: 100%;
+      background-color: white;
+      color: #2B2B2B;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+}
+
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .col-center {
+    @apply flex flex-col justify-center items-center;
+  }
+
+  .col-center-left {
+    @apply flex flex-col justify-center items-start;
+  }
+
+  .footer-gap {
+    @apply flex flex-col gap-3;
+  }
+
+  .footer-header {
+    @apply font-semibold text-[var(--color-gray)] text-xl;
+  }
+
+  .footer-list {
+    @apply flex flex-col gap-2 mt-5 font-semibold text-[var(--color-light-gray)];
+  }
+
+  .error-message {
+    @apply text-red-500 text-sm mt-1;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer components {
+  main {
+    @apply h-auto w-screen;
+  }
+
+  #login,
+  #signup {
+    @apply h-screen w-full h-full grid md:grid-cols-[1fr_700px] font-dm-sans;
+  }
+
+  #dashboard,
+  #inventory {
+    @apply bg-[var(--color-gray)] w-full h-screen p-3 grid grid-cols-[1fr_85%] gap-5;
+  }
+}
